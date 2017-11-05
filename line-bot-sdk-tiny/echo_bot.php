@@ -53,7 +53,7 @@ foreach ($client->parseEvents() as $event) {
                         'messages' => array(
                             array(
                                 'type' => 'text',
-                                'text' => $message['text'].'讓我想想喔…',
+                                'text' => $message['text'],
                             ),                           
                             array(
                                 'type' => 'sticker',
