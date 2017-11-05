@@ -57,7 +57,7 @@ foreach ($client->parseEvents() as $event) {
                             ),                           
                             array(
                                 'type' => 'text',
-                                'text' => $result,
+                                'text' => $item['gsx$content'] ,
                             ),
                             array(
                                 'type' => 'sticker',
