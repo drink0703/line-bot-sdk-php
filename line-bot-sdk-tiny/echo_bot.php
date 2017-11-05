@@ -26,6 +26,26 @@ foreach ($client->parseEvents() as $event) {
     switch ($event['type']) {
         case 'message':
             $message = $event['message'];
+                                    
+            $json = file_get_contents('https://spreadsheets.google.com/feeds/list/1JpQkC6LI0-f09emn11osToA66eoFJJFP7Gmh8ZaBOIU/od6/public/values?alt=json');
+            $data = json_decode($json, true);
+            $result = array();
+
+            foreach ($data['feed']['entry'] as $item) {
+                $keywords = explode(',', $item['gsx$keyword']['$t']);
+
+                foreach ($keywords as $keyword) {
+                    if (mb_strpos($message['text'], $keyword) !== false) {
+                        $candidate = array(
+                                'type' => 'text',
+                                'text' => $item['gsx$content']['$t'],
+                                    ),
+                                ),
+                            );
+                        array_push($result, $candidate);
+                    }
+                }
+            }
             switch ($message['type']) {
                 case 'text':
                     $client->replyMessage(array(
