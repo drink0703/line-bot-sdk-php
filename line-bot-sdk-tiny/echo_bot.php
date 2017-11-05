@@ -39,6 +39,13 @@ foreach ($client->parseEvents() as $event) {
                         $candidate = array(
                                 'type' => 'text',
                                 'text' => $item['gsx$content']['$t'],
+                                    ),
+                                ),
+                            );
+                        array_push($result, $candidate);
+                    }
+                }
+            }
             switch ($message['type']) {
                 case 'text':
                     $client->replyMessage(array(
