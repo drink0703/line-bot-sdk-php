@@ -56,10 +56,6 @@ foreach ($client->parseEvents() as $event) {
                                 'text' => $message['text'].'讓我想想喔…',
                             ),                           
                             array(
-                                'type' => 'text',
-                                'text' => $item['gsx$content'] ,
-                            ),
-                            array(
                                 'type' => 'sticker',
                                 'packageId' => '1',
                                 'stickerId' => '2',
